@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kirish — CareTrack Clinic</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="auth-shell">
+    <aside class="auth-aside">
+      <div class="auth-brand">
+        <span class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21s-7-4.5-7-11a5 5 0 0 1 7-4.5A5 5 0 0 1 19 10c0 6.5-7 11-7 11Z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M12 8v6M9 11h6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>CareTrack Clinic</span>
+      </div>
+
+      <div class="auth-hero">
+        <h2>Bemorlaringizning sog'lig'i — bizning ustuvor vazifamiz</h2>
+        <p>Zamonaviy klinika boshqaruvi uchun yagona platforma. Bemor yozuvlari, shifokorlar, tashxislar va analitika — bir joyda, xavfsiz va tezkor.</p>
+
+        <div class="auth-features">
+          <div class="feat">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            HIPAA mos xavfsizlik
+          </div>
+          <div class="feat">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 12h4l3-9 4 18 3-9h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Real vaqt analitika
+          </div>
+          <div class="feat">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.7"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.7"/></svg>
+            Rolga asoslangan kirish
+          </div>
+          <div class="feat">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 7h18M3 12h18M3 17h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            To'liq bemor tarixi
+          </div>
+        </div>
+      </div>
+
+      <div class="auth-foot">© 2026 CareTrack Clinic. Barcha huquqlar himoyalangan.</div>
+    </aside>
+
+    <main class="auth-main">
+      <div class="auth-card">
+        <h1>Hisobingizga kiring</h1>
+        <p class="sub">Davom etish uchun ma'lumotlaringizni kiriting</p>
+
+        <form class="auth-form" id="loginForm" novalidate>
+          <div class="field">
+            <label for="email">Email manzil</label>
+            <div class="input-with-icon">
+              <span class="ico">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M3 7l9 6 9-6M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2Z" stroke="currentColor" stroke-width="1.7"/></svg>
+              </span>
+              <input type="email" id="email" name="email" class="input" placeholder="email@caretrack.uz" required autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="password">Parol</label>
+            <div class="input-with-icon">
+              <span class="ico">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="11" width="16" height="10" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 11V7a4 4 0 0 1 8 0v4" stroke="currentColor" stroke-width="1.7"/></svg>
+              </span>
+              <input type="password" id="password" name="password" class="input" placeholder="••••••••" required autocomplete="current-password" />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" id="loginBtn">
+            <span id="loginLabel">Kirish</span>
+          </button>
+        </form>
+
+        <div class="demo-credentials">
+          <h4>Demo hisoblar (bosing — avto-to'ldiriladi)</h4>
+          <div class="demo-row">
+            <span>Administrator</span>
+            <code data-email="admin@caretrack.uz" data-pass="password123">admin@caretrack.uz</code>
+          </div>
+          <div class="demo-row">
+            <span>Shifokor</span>
+            <code data-email="clinician@caretrack.uz" data-pass="password123">clinician@caretrack.uz</code>
+          </div>
+          <div class="demo-row">
+            <span>Qabulxona</span>
+            <code data-email="reception@caretrack.uz" data-pass="password123">reception@caretrack.uz</code>
+          </div>
+          <p class="muted" style="margin-top:8px">Barcha demo parollar: <code>password123</code></p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script>
+    // If already logged in → dashboard
+    if (Auth.isAuthenticated()) location.replace('dashboard.html');
+
+    const form = document.getElementById('loginForm');
+    const btn = document.getElementById('loginBtn');
+    const label = document.getElementById('loginLabel');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = UI.serializeForm(form);
+      UI.showFieldErrors(form, []);
+      btn.disabled = true;
+      label.innerHTML = '<span class="spinner" style="border-color:rgba(255,255,255,.4);border-top-color:#fff"></span> Kirilmoqda...';
+      label.style.display = 'inline-flex'; label.style.alignItems = 'center'; label.style.gap = '8px';
+
+      try {
+        const res = await Api.auth.login(data.email, data.password);
+        Auth.token = res.data.token;
+        Auth.user = res.data.user;
+        UI.toast('Xush kelibsiz, ' + res.data.user.full_name + '!', 'success');
+        setTimeout(() => location.href = 'dashboard.html', 400);
+      } catch (err) {
+        UI.showFieldErrors(form, err.errors && err.errors.length ? err.errors : [err.message]);
+        btn.disabled = false;
+        label.textContent = 'Kirish';
+      }
+    });
+
+    // Demo credential autofill
+    document.querySelectorAll('.demo-row code[data-email]').forEach(code => {
+      code.addEventListener('click', () => {
+        document.getElementById('email').value = code.dataset.email;
+        document.getElementById('password').value = code.dataset.pass;
+        document.getElementById('email').focus();
+      });
+    });
+  </script>
+</body>
+</html>

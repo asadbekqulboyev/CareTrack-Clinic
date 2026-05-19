@@ -15,13 +15,21 @@ require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
 const DB_NAME = process.env.DB_NAME || 'caretrack_mrms';
 
 async function run() {
-  const baseConfig = {
-    host: process.env.DB_HOST || 'localhost',
-    port: Number(process.env.DB_PORT) || 3306,
-    user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || '',
-    multipleStatements: true,
-  };
+  const baseConfig = process.env.DATABASE_URL
+    ? {
+        uri: process.env.DATABASE_URL,
+        multipleStatements: true,
+        ...(process.env.DB_SSL === "true"
+          ? { ssl: { rejectUnauthorized: false } }
+          : {}),
+      }
+    : {
+        host: process.env.DB_HOST || "localhost",
+        port: Number(process.env.DB_PORT) || 3306,
+        user: process.env.DB_USER || "root",
+        password: process.env.DB_PASSWORD || "",
+        multipleStatements: true,
+      };
 
   console.log('🔧 Connecting to MySQL...');
   let conn;

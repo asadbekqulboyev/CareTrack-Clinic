@@ -42,7 +42,10 @@ async function api(method, url, body, token) {
 
   // 2) Auth: bad credentials
   {
-    const { status } = await api('POST', '/auth/login', { email: 'admin@caretrack.uz', password: 'wrong' });
+    const { status } = await api("POST", "/auth/login", {
+      email: "admin@caretrack.uz",
+      password: "wrongpass",
+    });
     log(status === 401, 'POST /auth/login rejects wrong password');
   }
 

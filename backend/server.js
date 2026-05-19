@@ -23,10 +23,23 @@ const app = express();
 const PORT = Number(process.env.PORT) || 5000;
 
 // Core middleware
-app.use(cors({
-  origin: process.env.CLIENT_ORIGIN === '*' ? true : (process.env.CLIENT_ORIGIN || true),
-  credentials: true,
-}));
+const corsOrigins = (process.env.CLIENT_ORIGIN || "*")
+  .split(",")
+  .map((s) => s.trim())
+  .filter(Boolean);
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow same-origin / curl / postman (no origin header)
+      if (!origin) return callback(null, true);
+      if (corsOrigins.includes("*") || corsOrigins.includes(origin))
+        return callback(null, true);
+      return callback(new Error("Not allowed by CORS: " + origin));
+    },
+    credentials: true,
+  }),
+);
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true }));
 

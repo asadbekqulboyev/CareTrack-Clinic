@@ -1,0 +1,7 @@
+/* CareTrack MRMS - master stylesheet (imports modular files) */
+@import url('./variables.css');
+@import url('./base.css');
+@import url('./components.css');
+@import url('./layout.css');
+@import url('./auth.css');
+@import url('./dashboard.css');

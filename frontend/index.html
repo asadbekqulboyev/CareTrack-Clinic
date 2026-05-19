@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <title>CareTrack Clinic</title>
+  <script>
+    // Redirect to dashboard if logged in, else to login
+    var t = localStorage.getItem('caretrack_token');
+    location.replace(t ? 'dashboard.html' : 'login.html');
+  </script>
+</head>
+<body></body>
+</html>

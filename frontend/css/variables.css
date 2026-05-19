@@ -1,0 +1,104 @@
+/* =================================================================
+   CareTrack Clinic - Design Tokens
+   ================================================================= */
+:root {
+  /* Brand */
+  --brand-50:  #eff8ff;
+  --brand-100: #d9eeff;
+  --brand-200: #b8e0ff;
+  --brand-300: #85cbff;
+  --brand-400: #4aacff;
+  --brand-500: #1f8ff5;
+  --brand-600: #0a72db;
+  --brand-700: #0a5cb1;
+  --brand-800: #0d4d8e;
+  --brand-900: #0e3f74;
+
+  --accent-400: #34d8c1;
+  --accent-500: #14b8a6;
+  --accent-600: #0d9488;
+
+  /* Semantic */
+  --success: #10b981;
+  --success-bg: #dcfce7;
+  --warning: #f59e0b;
+  --warning-bg: #fef3c7;
+  --danger:  #ef4444;
+  --danger-bg: #fee2e2;
+  --info:    #3b82f6;
+  --info-bg: #dbeafe;
+
+  /* Neutrals */
+  --gray-25:  #fbfcfd;
+  --gray-50:  #f7f9fc;
+  --gray-100: #eef2f7;
+  --gray-200: #e3e8ef;
+  --gray-300: #cdd5df;
+  --gray-400: #9aa4b2;
+  --gray-500: #697586;
+  --gray-600: #4b5565;
+  --gray-700: #364152;
+  --gray-800: #202939;
+  --gray-900: #121926;
+
+  /* Surfaces */
+  --bg:        #f4f7fb;
+  --bg-soft:   #eef3f9;
+  --surface:   #ffffff;
+  --surface-2: #fafcfe;
+  --border:    #e5ebf3;
+  --border-strong: #d7dfeb;
+
+  /* Text */
+  --text:      #1a2332;
+  --text-soft: #4b5565;
+  --text-mute: #6b7689;
+
+  /* Sidebar */
+  --sidebar-bg: #0f1b2d;
+  --sidebar-bg-2: #142440;
+  --sidebar-text: #cbd5e1;
+  --sidebar-text-mute: #8b96a8;
+  --sidebar-active: #1f8ff5;
+
+  /* Gradients */
+  --grad-primary: linear-gradient(135deg, #1f8ff5 0%, #14b8a6 100%);
+  --grad-soft:    linear-gradient(135deg, #eff8ff 0%, #ecfeff 100%);
+  --grad-hero:    linear-gradient(135deg, #0a72db 0%, #14b8a6 100%);
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(16, 24, 40, .05);
+  --shadow-sm: 0 1px 3px rgba(16, 24, 40, .06), 0 1px 2px rgba(16, 24, 40, .04);
+  --shadow-md: 0 4px 8px -2px rgba(16, 24, 40, .08), 0 2px 4px -2px rgba(16, 24, 40, .05);
+  --shadow-lg: 0 12px 24px -6px rgba(16, 24, 40, .12), 0 4px 8px -4px rgba(16, 24, 40, .06);
+  --shadow-xl: 0 24px 48px -12px rgba(16, 24, 40, .18);
+  --shadow-glass: 0 8px 32px rgba(31, 143, 245, .12);
+
+  /* Radius */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 999px;
+
+  /* Spacing scale */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-7: 32px; --sp-8: 40px;
+  --sp-9: 48px; --sp-10: 64px;
+
+  /* Layout */
+  --sidebar-w: 260px;
+  --sidebar-w-collapsed: 76px;
+  --topbar-h: 68px;
+
+  /* Type */
+  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --fz-xs: 12px; --fz-sm: 13px; --fz-base: 14px; --fz-md: 15px;
+  --fz-lg: 17px; --fz-xl: 20px; --fz-2xl: 24px; --fz-3xl: 30px; --fz-4xl: 36px;
+
+  /* Motion */
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --t-fast: 140ms; --t: 220ms; --t-slow: 380ms;
+}
