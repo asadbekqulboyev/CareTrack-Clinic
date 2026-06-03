@@ -1,12 +1,14 @@
-# Render.com Blueprint - one-click deploy for the backend
+# Render.com Blueprint — one-click deploy for the entire app
+# (backend + frontend served from same Express server)
 services:
   - type: web
-    name: caretrack-mrms-api
+    name: caretrack-mrms
     runtime: node
     plan: free
     rootDir: backend
     buildCommand: npm install
     startCommand: node server.js
+    healthCheckPath: /api/health
     envVars:
       - key: NODE_ENV
         value: production
@@ -15,8 +17,8 @@ services:
       - key: JWT_EXPIRES_IN
         value: 7d
       - key: CLIENT_ORIGIN
-        sync: false        # set manually to your Netlify URL e.g. https://caretrack.netlify.app
+        value: "*"
       - key: DATABASE_URL
-        sync: false        # set manually to your MySQL connection string
+        sync: false        # SET MANUALLY: paste your Railway/Aiven MySQL URL
       - key: DB_SSL
         value: "true"

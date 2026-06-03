@@ -65,3 +65,26 @@ exports.me = async (req, res, next) => {
     res.json({ success: true, data: user });
   } catch (err) { next(err); }
 };
+
+exports.updatePassword = async (req, res, next) => {
+  try {
+    const { current_password, new_password } = req.body;
+    const user = await User.findByEmail(req.user.email);
+    if (!user)
+      return res
+        .status(404)
+        .json({ success: false, message: "Foydalanuvchi topilmadi" });
+
+    const ok = await bcrypt.compare(current_password, user.password_hash);
+    if (!ok)
+      return res
+        .status(401)
+        .json({ success: false, message: "Joriy parol noto'g'ri" });
+
+    const password_hash = await bcrypt.hash(new_password, 10);
+    await User.update(user.id, { password_hash });
+    res.json({ success: true, message: "Parol muvaffaqiyatli o'zgartirildi" });
+  } catch (err) {
+    next(err);
+  }
+};

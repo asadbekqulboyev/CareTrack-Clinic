@@ -11,7 +11,6 @@ router.post('/login',
   c.login
 );
 
-// Only admin can register new users via auth/register; for self-signup remove role check.
 router.post('/register',
   authRequired,
   requireRole('admin'),
@@ -25,5 +24,27 @@ router.post('/register',
 );
 
 router.get('/me', authRequired, c.me);
+
+router.put(
+  "/password",
+  authRequired,
+  validate([
+    {
+      field: "current_password",
+      required: true,
+      type: "string",
+      min: 6,
+      label: "Joriy parol",
+    },
+    {
+      field: "new_password",
+      required: true,
+      type: "string",
+      min: 6,
+      label: "Yangi parol",
+    },
+  ]),
+  c.updatePassword,
+);
 
 module.exports = router;

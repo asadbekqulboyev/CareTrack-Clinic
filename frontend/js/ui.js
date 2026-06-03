@@ -236,13 +236,13 @@
               <span class="nav-label">Chiqish</span>
             </a>
           </nav>
-          <div class="sidebar-foot">
+          <a href="profile.html" class="sidebar-foot" style="text-decoration:none;color:inherit">
             <div class="avatar avatar-sm">${initials}</div>
             <div class="info">
-              <div class="name">${user.full_name || 'Foydalanuvchi'}</div>
+              <div class="name">${user.full_name || "Foydalanuvchi"}</div>
               <div class="role">${fmt.role(role)}</div>
             </div>
-          </div>
+          </a>
         </aside>
         <div class="main">
           <header class="topbar">
@@ -255,13 +255,15 @@
               </div>
             </div>
             <div class="topbar-right">
-              <button class="btn-icon" aria-label="Bildirishnomalar" style="background:var(--gray-50);border-radius:10px;width:38px;height:38px;color:var(--gray-600)">${NAV_ICONS.bell}</button>
+              <button class="btn-icon" aria-label="Bildirishnomalar" style="background:var(--gray-50);border-radius:10px;width:38px;height:38px;color:var(--gray-600);display:grid;place-items:center">${NAV_ICONS.bell}</button>
               <div class="topbar-pill" id="topUserPill">
+                <a href="profile.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit">
                 <div class="avatar avatar-sm">${initials}</div>
                 <div class="info-text">
-                  <div class="name">${user.full_name || 'Foydalanuvchi'}</div>
+                  <div class="name">${user.full_name || "Foydalanuvchi"}</div>
                   <div class="role">${fmt.role(role)}</div>
                 </div>
+                </a>
               </div>
             </div>
           </header>

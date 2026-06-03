@@ -15,6 +15,10 @@
 }
 .btn:disabled { opacity: .55; cursor: not-allowed; }
 .btn .ico { width: 16px; height: 16px; }
+.btn svg {
+  width: 16px;
+  height: 16px;
+}
 
 .btn-primary {
   background: var(--grad-primary); color: #fff;
@@ -40,7 +44,20 @@
 
 .btn-sm { padding: 6px 12px; font-size: var(--fz-xs); border-radius: var(--radius-sm); }
 .btn-lg { padding: 14px 22px; font-size: var(--fz-md); border-radius: var(--radius-lg); }
-.btn-icon { width: 36px; height: 36px; padding: 0; border-radius: var(--radius-md); }
+.btn-icon {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: var(--radius-md);
+  display: grid;
+  place-items: center;
+}
+
+.btn-icon svg {
+  width: 18px;
+  height: 18px;
+  margin: auto;
+}
 
 /* ---------- Cards ---------- */
 .card {
@@ -83,6 +100,10 @@
   width: 44px; height: 44px; border-radius: 12px;
   display: grid; place-items: center;
   background: var(--brand-50); color: var(--brand-600);
+}
+.stat-card .icon-wrap svg {
+  width: 20px;
+  height: 20px;
 }
 .stat-card[data-tone="teal"]   .icon-wrap { background: #d1faf3; color: var(--accent-600); }
 .stat-card[data-tone="amber"]  .icon-wrap { background: var(--warning-bg); color: var(--warning); }

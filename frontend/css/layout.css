@@ -95,6 +95,20 @@
   border-radius: 0 3px 3px 0;
 }
 .nav-link svg { width: 20px; height: 20px; flex-shrink: 0; }
+.sidebar-nav svg {
+  width: 20px;
+  height: 20px;
+}
+
+.topbar .btn-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.row-actions .btn-icon svg {
+  width: 15px;
+  height: 15px;
+}
 
 .sidebar-foot {
   padding: 16px 18px;
